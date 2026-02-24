@@ -15,11 +15,11 @@ export default function DemoOne() {
           {/* GitHub heatmap grid trail — behind all hero content */}
           <ContributionGrid />
 
-          {/* Navbar: first row of the hero flex column */}
+          {/* New navbar position — inside the hero section flow */}
           <HeroNavbar />
 
-          {/* Hero content: flex-1 centres it vertically in remaining space */}
-          <div className="flex-1 flex flex-col items-center justify-center px-6">
+          <div className="flex-1 flex flex-col items-center justify-center relative px-6">
+
             <div className="relative z-10 max-w-4xl w-full">
               <TextBlockAnimation
                 blockColor="#6366f1"
@@ -35,14 +35,14 @@ export default function DemoOne() {
                 </h1>
               </TextBlockAnimation>
             </div>
-          </div>
 
-          {/* Scroll Indicator */}
-          <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-60 z-10">
-            <span className="text-xs uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
-              Scroll to Reveal
-            </span>
-            <ArrowDown className="w-5 h-5 text-zinc-500 dark:text-zinc-400 animate-bounce" />
+            {/* Scroll Indicator */}
+            <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-60 z-10 text-center">
+              <span className="text-xs uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
+                Scroll to Reveal
+              </span>
+              <ArrowDown className="w-5 h-5 text-zinc-500 dark:text-zinc-400 animate-bounce" />
+            </div>
           </div>
         </section>
 
