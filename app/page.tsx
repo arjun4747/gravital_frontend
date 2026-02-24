@@ -1,6 +1,7 @@
 import TextBlockAnimation from "@/components/ui/text-block-animation"
-import MousePaint from "@/components/ui/mouse-paint"
 import AnimatedSearch from "@/components/ui/animated-search"
+import ContributionGrid from "@/components/ui/contribution-grid"
+import HeroNavbar from "@/components/ui/hero-navbar"
 import { ArrowDown } from "lucide-react"
 
 export default function DemoOne() {
@@ -10,27 +11,34 @@ export default function DemoOne() {
       <div className="flex-1 flex flex-col">
 
         {/* 1. HERO SECTION: The Hook */}
-        <section className="min-h-screen flex flex-col items-center justify-center relative px-6">
-          {/* Full-screen paint trail — sits behind all hero content */}
-          <MousePaint />
-          <div className="relative z-10 max-w-4xl w-full">
-            <TextBlockAnimation
-              blockColor="#6366f1"
-              animateOnScroll={false}
-              delay={0.2}
-              duration={0.8}
-            >
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-tight">
-                Beyond the Resume.<br />
-                <span className="inline-block bg-black text-white dark:bg-white dark:text-black px-3 pb-1 rounded-md mt-2">
-                  Into the Code.
-                </span>
-              </h1>
-            </TextBlockAnimation>
+        <section className="min-h-screen flex flex-col relative">
+          {/* GitHub heatmap grid trail — behind all hero content */}
+          <ContributionGrid />
+
+          {/* Navbar: first row of the hero flex column */}
+          <HeroNavbar />
+
+          {/* Hero content: flex-1 centres it vertically in remaining space */}
+          <div className="flex-1 flex flex-col items-center justify-center px-6">
+            <div className="relative z-10 max-w-4xl w-full">
+              <TextBlockAnimation
+                blockColor="#6366f1"
+                animateOnScroll={false}
+                delay={0.2}
+                duration={0.8}
+              >
+                <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-tight">
+                  Beyond the Resume.<br />
+                  <span className="inline-block bg-black text-white dark:bg-white dark:text-black px-3 pb-1 rounded-md mt-2">
+                    Into the Code.
+                  </span>
+                </h1>
+              </TextBlockAnimation>
+            </div>
           </div>
 
           {/* Scroll Indicator */}
-          <div className="absolute bottom-12 flex flex-col items-center gap-2 opacity-60 z-10">
+          <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-60 z-10">
             <span className="text-xs uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
               Scroll to Reveal
             </span>

@@ -120,7 +120,333 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Gravital — SaaS Navbar  (vamotalent-style, zero clutter)
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Container ─────────────────────────────────────────────────── */
+.grav-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-self: stretch;
+
+  padding: 1.25rem clamp(1.5rem, 5vw, 4rem);
+
+  background: transparent;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+
+
+/* ── Logo / Wordmark ────────────────────────────────────────────── */
+.grav-nav__logo {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.grav-nav__wordmark {
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  color: #0a0a0a;
+  /* Remove once replaced with <Image> */
+  line-height: 1;
+}
+
+/* ── Right-side action group ────────────────────────────────────── */
+.grav-nav__actions {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* ── "Request Demo" text link ───────────────────────────────────── */
+.grav-nav__demo-link {
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #52525b;
+  /* zinc-600 */
+  text-decoration: none;
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+  transition: color 200ms ease;
+}
+
+.grav-nav__demo-link:hover {
+  color: #0a0a0a;
+}
+
+/* ── "Dashboard" CTA button ─────────────────────────────────────── */
+.grav-nav__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  text-decoration: none;
+
+  color: #ffffff;
+  background: #111111;
+
+  padding: 0.55rem 1.3rem;
+  border-radius: 0.6rem;
+  /* rounded-lg equivalent */
+
+  transition: background 200ms ease, opacity 200ms ease;
+}
+
+.grav-nav__cta:hover {
+  background: #1c1c1c;
+  /* very slightly lighter — premium feel */
+  opacity: 0.92;
+}
+
+/* ── Responsive ─────────────────────────────────────────────────── */
+
+/* Tablet: tighten the gap a touch */
+@media (max-width: 768px) {
+  .grav-nav__actions {
+    gap: 1.25rem;
+  }
+}
+
+/* Mobile: reduce padding + font, keep layout intact */
+@media (max-width: 480px) {
+  .grav-nav {
+    height: 64px;
+    padding-inline: 1.25rem;
+  }
+
+  .grav-nav__actions {
+    gap: 1rem;
+  }
+
+  .grav-nav__demo-link,
+  .grav-nav__cta {
+    font-size: 0.84rem;
+  }
+
+  .grav-nav__cta {
+    padding: 0.48rem 1rem;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Auth / Login pages
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Full-page centred layout ───────────────────────────────────── */
+.login-page {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.5rem;
+  background: #fafafa;
+}
+
+.login-card-wrapper {
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* ── Heading block ──────────────────────────────────────────────── */
+.login-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.login-eyebrow {
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #a1a1aa;
+}
+
+.login-title {
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  font-size: 2.25rem;
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  color: #0a0a0a;
+  line-height: 1.1;
+}
+
+.login-subtitle {
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  font-size: 0.9rem;
+  color: #71717a;
+  margin-top: 0.2rem;
+}
+
+.login-back {
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  font-size: 0.85rem;
+  color: #71717a;
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+  transition: color 150ms ease;
+}
+
+.login-back:hover {
+  color: #0a0a0a;
+}
+
+/* ── Role selection cards ───────────────────────────────────────── */
+.login-roles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.role-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1.5rem 1.25rem;
+  border: 1.5px solid #e4e4e7;
+  border-radius: 0.875rem;
+  text-decoration: none;
+  background: #ffffff;
+  transition: border-color 180ms ease, transform 180ms ease;
+  cursor: pointer;
+}
+
+.role-card:hover {
+  border-color: #0a0a0a;
+  transform: translateY(-2px);
+}
+
+.role-card__icon {
+  color: #0a0a0a;
+  display: flex;
+}
+
+.role-card__label {
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #0a0a0a;
+}
+
+.role-card__desc {
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  font-size: 0.8rem;
+  color: #71717a;
+  line-height: 1.45;
+}
+
+/* ── Auth option buttons ────────────────────────────────────────── */
+.auth-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.auth-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  width: 100%;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.625rem;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  transition: opacity 180ms ease, transform 180ms ease;
+  border: none;
+}
+
+.auth-btn:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+/* Google — white with border */
+.auth-btn--google {
+  background: #ffffff;
+  color: #0a0a0a;
+  border: 1.5px solid #e4e4e7;
+}
+
+/* GitHub — dark */
+.auth-btn--github {
+  background: #0a0a0a;
+  color: #ffffff;
+  border: none;
+}
+
+/* Email — outline */
+.auth-btn--email {
+  background: transparent;
+  color: #0a0a0a;
+  border: 1.5px solid #e4e4e7;
+}
+
+/* ── Or divider ─────────────────────────────────────────────────── */
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #d4d4d8;
+  font-size: 0.8rem;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #e4e4e7;
+}
+
+.auth-divider span {
+  color: #a1a1aa;
+}
+
+/* ── Privacy note ───────────────────────────────────────────────── */
+.auth-note {
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  font-size: 0.78rem;
+  color: #a1a1aa;
+  text-align: center;
+  line-height: 1.6;
+  margin-top: 0.5rem;
+}
+
+/* ── Responsive: stack cards on mobile ─────────────────────────── */
+@media (max-width: 400px) {
+  .login-roles {
+    grid-template-columns: 1fr;
   }
 }
